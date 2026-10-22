@@ -1,6 +1,6 @@
 ﻿<Solution>
   <Project Path="MyIndieGames.FantasticUI.Samples.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="MyIndieGames.FantasticUI.Editor.csproj" />
   <Project Path="MyIndieGames.FantasticUI.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
 </Solution>

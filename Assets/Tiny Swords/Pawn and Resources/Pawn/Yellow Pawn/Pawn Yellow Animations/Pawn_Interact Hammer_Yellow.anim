@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pawn_Interact Hammer_Yellow
-  serializedVersion: 7
+  serializedVersion: 8
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -47,6 +47,7 @@ AnimationClip:
       isPPtrCurve: 1
       isIntCurve: 0
       isSerializeReferenceCurve: 0
+      metaData: 0
     pptrCurveMapping:
     - {fileID: -1241957522165214808, guid: ce02f851edf1f4e0194014d98d3d8126, type: 3}
     - {fileID: -4152304209030961917, guid: ce02f851edf1f4e0194014d98d3d8126, type: 3}

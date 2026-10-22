@@ -7,20 +7,20 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Wheat wheat;
     [SerializeField] TextMeshProUGUI wheatText;
+    [SerializeField] Civilians civilians;
     private float wheatTime = 0f;
 
 
     void Start()
     {
+        wheat.wheatCount = 0;
         wheatText.text = $"Пщеница: {wheat.wheatCount}";
     }
 
-    // Update is called once per frame
     void Update()
-    {
+    {   
         if (wheatTime >= 3f) {
-            wheat.wheatCount += wheat.wheatSalary;
-            Debug.Log(wheat.wheatCount);
+            wheat.wheatCount += wheat.wheatSalary * civilians.civilianCount;
             wheatText.text = $"Пщеница: {wheat.wheatCount}";
             wheatTime = 0f;
         }
