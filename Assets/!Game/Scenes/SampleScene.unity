@@ -153,7 +153,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &14631677
 SpriteRenderer:
@@ -1227,6 +1227,7 @@ GameObject:
   - component: {fileID: 358028571}
   - component: {fileID: 358028570}
   - component: {fileID: 358028572}
+  - component: {fileID: 358028573}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1246,8 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f4690af6ab5df49a04bb7ddb3b7af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  wheat: {fileID: 7204734868771833041, guid: 8dde350ebf0575648968157ae828915e, type: 3}
-  wheatText: {fileID: 495820244}
+  wheat: {fileID: 358028573}
   civilians: {fileID: 1044506796}
 --- !u!4 &358028571
 Transform:
@@ -1276,7 +1276,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4344412338eec8e479d4051616ede28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddUnitBtn
-  place: {fileID: 0}
+--- !u!114 &358028573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358028569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a407b1546afad4947a3855757254628c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wheat
+  wheatCount: 0
+  wheatSalary: 20
+  wheatSalaryCooldown: 3
+  wheatText: {fileID: 495820244}
 --- !u!1 &392869744
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,6 +3148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Civilans
   civilianSalary: 100
+  price: 100
   civilianCount: 0
 --- !u!1 &1044587946
 GameObject:
@@ -4821,7 +4837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.019236246, y: 0.8661008}
   m_AnchorMax: {x: 0.091000006, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: 2}
+  m_AnchoredPosition: {x: -1.5, y: 1.9999847}
   m_SizeDelta: {x: 1, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1538918838
@@ -4947,12 +4963,60 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 358028572}
         m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
+        m_MethodName: GetPrice
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1044506796}
+          m_ObjectArgumentAssemblyTypeName: Civilians, Assembly-CSharp
+          m_IntArgument: 20
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 358028572}
+        m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
+        m_MethodName: GetWheatCount
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 358028573}
+          m_ObjectArgumentAssemblyTypeName: Wheat, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 358028572}
+        m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
         m_MethodName: GetPosition
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1044506793}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 358028572}
+        m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
+        m_MethodName: GetIcon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1538918838}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 358028572}
+        m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
+        m_MethodName: GetUnitCooldown
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6104,7 +6168,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1988451460}
   - {fileID: 562917618}
-  - {fileID: 358028571}
   - {fileID: 931639071}
   - {fileID: 1133627812}
   - {fileID: 1044506795}
+  - {fileID: 358028571}
