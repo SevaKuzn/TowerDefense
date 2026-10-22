@@ -1,6 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.UIElements;
 
 public class Castle : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class Castle : MonoBehaviour
 
     void Start()
     {
+        ColorBlock colBlock = hpBar.colors;
         hpBar.interactable = false;
-        
+        colBlock.colorMultiplier = 5f;
     }
 
  
