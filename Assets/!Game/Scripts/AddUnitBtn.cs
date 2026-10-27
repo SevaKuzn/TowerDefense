@@ -1,78 +1,54 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 
 public class AddUnitBtn : MonoBehaviour
 {
-    private int maxUnitCount = 14;
-    private int unitCount = 1;
-    private int price;
-    private int wCount;
-    private float timer;
-    private float unitCooldown;
-    private Image icon;
-    private Wheat wh;
-    private Transform place;
-
-    private bool isCooldown = false;
-    private bool isTimer = false;
-
-    #region "Get"
-    public void GetPrice(Civilians unit)
-    {
-        price = unit.price;
-    }
-    public void GetWheatCount(Wheat wheat)
-    {
-        wCount = wheat.wheatCount;
-        wh = wheat;
-    }
-    public void GetPosition(GameObject spawnPlace)
-    {
-        place = spawnPlace.transform;
-    }
-
-    public void GetIcon(Image unitIcon)
-    {
-        icon = unitIcon;
-    }
-
-    public void GetUnitCooldown(int cooldown)
-    {
-        unitCooldown = cooldown;
-    }
-    #endregion
+    private int _maxUnitCount = 14;
+    private int _unitCount = 1;
+    private int _wCount;
+    [SerializeField] private int _price;
+    [SerializeField] private float _unitCooldown;
+    [SerializeField] private Image _icon;
+    [SerializeField] private Wheat _wh;
+    [SerializeField] private Transform _place;
+    private bool _isCooldown = false;
+    private bool _isIcon = false;
 
     void Update()
     {
-        if (isTimer)
+        _wCount = _wh.wheatCount;
+        StartCoroutine(Timer(_unitCooldown));
+        if (_isIcon)
         {
-            if ((timer != unitCooldown) && (timer !> unitCooldown))
-            {
-                timer += Time.deltaTime;
-                icon.fillAmount += 1f/unitCooldown * Time.deltaTime;
-                isCooldown = true;
-            }
+            _icon.fillAmount -= 1.0f / _unitCooldown * Time.deltaTime;
+            _isIcon = false;
         }
+
     }
 
     public void AddUnit(GameObject prefab)
     {
-        Debug.Log($"price:{price}, wCount:{wCount}");
-        if ((unitCount != maxUnitCount || unitCount! > maxUnitCount) && (price <= wCount))
+        if ((_unitCount != _maxUnitCount || _unitCount! > _maxUnitCount) && (_price <= _wCount))
         {
-            isTimer = true;
-            if (isCooldown)
+            if (_isCooldown)
             {
-                wCount -= price;
-                wh.wheatCount -= price;
-                wh.wheatText.text = $"Пщеница: {wCount}";
-                Debug.Log("sadsad");
-                GameObject newUnit = Instantiate(prefab, place);
-                unitCount++;
-                isCooldown = false;
-                isTimer = false;
+                _wCount -= _price;
+                _wh.wheatCount -= _price;
+                _wh.wheatText.text = $"Пщеница: {_wCount}";
+                GameObject newUnit = Instantiate(prefab, _place);
+                _unitCount++;
+                _isCooldown = false;
+                StopAllCoroutines();
             }
         }
+    }
+
+    IEnumerator Timer(float _unitCooldown)
+    {
+        _isIcon = true;
+        yield return new WaitForSeconds(_unitCooldown);
+        _isCooldown = true;
+        _icon.fillAmount = 1.0f;
     }
 }

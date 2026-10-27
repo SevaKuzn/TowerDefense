@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        wheat.wheatCount = 0;
+        wheat.wheatCount = 1000;
         wheat.wheatText.text = $"Пщеница: {wheat.wheatCount}";
     }
 
