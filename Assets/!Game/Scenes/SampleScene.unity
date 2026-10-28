@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.6
+  m_fontSize: 25.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3397,10 +3397,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1095692552}
         m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
         m_MethodName: AddUnit
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 4226590358570257983, guid: 66a16c43755834b4a891f74fa187c087, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3461,6 +3461,7 @@ MonoBehaviour:
   _icon: {fileID: 1223414084}
   _wh: {fileID: 358028572}
   _place: {fileID: 580299097}
+  _prefab: {fileID: 4226590358570257983, guid: 66a16c43755834b4a891f74fa187c087, type: 3}
 --- !u!1 &1132340532
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,10 +5025,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1548033783}
         m_TargetAssemblyTypeName: AddUnitBtn, Assembly-CSharp
         m_MethodName: AddUnit
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 7468627170579578332, guid: cd2fa15ad592fb8488bbc5f697aaff25, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5088,6 +5089,7 @@ MonoBehaviour:
   _icon: {fileID: 1538918838}
   _wh: {fileID: 358028572}
   _place: {fileID: 1044506795}
+  _prefab: {fileID: 7468627170579578332, guid: cd2fa15ad592fb8488bbc5f697aaff25, type: 3}
 --- !u!1 &1606650759
 GameObject:
   m_ObjectHideFlags: 0

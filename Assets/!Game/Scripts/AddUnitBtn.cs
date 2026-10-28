@@ -12,39 +12,39 @@ public class AddUnitBtn : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private Wheat _wh;
     [SerializeField] private Transform _place;
+    [SerializeField] private GameObject _prefab;
     private bool _isCooldown = false;
     private bool _isIcon = false;
 
     void Update()
     {
         _wCount = _wh.wheatCount;
-        StartCoroutine(Timer(_unitCooldown));
         if (_isIcon)
         {
             _icon.fillAmount -= 1.0f / _unitCooldown * Time.deltaTime;
+        }  
+        if (_isCooldown)
+        {
+            _wCount -= _price;
+            _wh.wheatCount -= _price;
+            _wh.wheatText.text = $"Пщеница: {_wCount}";
+            GameObject newUnit = Instantiate(_prefab, _place);
+            _unitCount++;
+            _isCooldown = false;
             _isIcon = false;
+            StopAllCoroutines();
         }
-
     }
 
-    public void AddUnit(GameObject prefab)
+    public void AddUnit()
     {
         if ((_unitCount != _maxUnitCount || _unitCount! > _maxUnitCount) && (_price <= _wCount))
         {
-            if (_isCooldown)
-            {
-                _wCount -= _price;
-                _wh.wheatCount -= _price;
-                _wh.wheatText.text = $"Пщеница: {_wCount}";
-                GameObject newUnit = Instantiate(prefab, _place);
-                _unitCount++;
-                _isCooldown = false;
-                StopAllCoroutines();
-            }
+            StartCoroutine(UnitInit(_unitCooldown));
         }
     }
 
-    IEnumerator Timer(float _unitCooldown)
+    IEnumerator UnitInit(float _unitCooldown)
     {
         _isIcon = true;
         yield return new WaitForSeconds(_unitCooldown);
