@@ -18,14 +18,17 @@ public class SceneLoader : MonoBehaviour
     private bool _isSceneGame = false;
 
     private Color backgroundColor;
+    private Scene currentScene;
 
     private void Start()
     {
         backgroundColor = _backgroundImage.color;
+        currentScene = SceneManager.GetActiveScene();
     }
 
     void Update()
     {
+        Debug.Log(currentScene.name);
         if (_isBackgroundMain)
         {
             _backgroundImage.enabled = true;
@@ -48,8 +51,8 @@ public class SceneLoader : MonoBehaviour
     IEnumerator ChangeScene(string sceneName)
     {
        _isBackgroundMain = true;
+       _isBackgroundGame = false;
        yield return new WaitForSeconds(_changeSceneCooldown);
-       _isBackgroundGame = true;
-       SceneManager.LoadScene(sceneName);
+       SceneManager.LoadScene(1);
     }
 }
