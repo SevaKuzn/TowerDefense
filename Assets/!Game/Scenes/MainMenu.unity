@@ -5283,7 +5283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   _backgroundImage: {fileID: 417385762}
-  _scene: Game
   _changeSceneCooldown: 2
 --- !u!4 &1785043462
 Transform:
@@ -5402,7 +5401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6767309656583097528, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6767309656583097528, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5421,6 +5420,10 @@ PrefabInstance:
       value: SceneLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6767309656583097528, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767309656583097528, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -5430,7 +5433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8215160702261078579, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_fontSize
-      value: 55.05
+      value: 49.7
       objectReference: {fileID: 0}
     - target: {fileID: 8215160702261078579, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_fontSizeMax
