@@ -2,20 +2,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private Image _backgroundImage;
-    [SerializeField] private int _changeSceneCooldown;
+    [SerializeField] private float _changeSceneCooldown;
 
-    private string _gameScene = "Game";
-    private string _mainMenuScene = "MainMenu";
-
-    private bool _isBackgroundMain = false;
-    private bool _isBackgroundGame = false;
-
-    private bool _isSceneMain = false;
-    private bool _isSceneGame = false;
+    private bool _isNextScene = false;
+    private bool _isPerviousScene = false;
+    private int currentSceneIndex;
 
     private Color backgroundColor;
     private Scene currentScene;
@@ -24,35 +20,68 @@ public class SceneLoader : MonoBehaviour
     {
         backgroundColor = _backgroundImage.color;
         currentScene = SceneManager.GetActiveScene();
+        StartCoroutine(StartChangeLoadScreen());
     }
 
-    void Update()
+    private void Update()
     {
-        Debug.Log(currentScene.name);
-        if (_isBackgroundMain)
+        if (_isNextScene)
         {
+
             _backgroundImage.enabled = true;
             backgroundColor.a += 1f / _changeSceneCooldown * Time.deltaTime;
             _backgroundImage.color = backgroundColor;
+            
         }
-        if (_isBackgroundGame)
+        if (_isPerviousScene)
         {
-            _backgroundImage.enabled = true;
-            backgroundColor.a -= 1f / _changeSceneCooldown * Time.deltaTime;
-            _backgroundImage.color = backgroundColor;
+
+           _backgroundImage.enabled = true;
+           backgroundColor.a -= 1f / _changeSceneCooldown * Time.deltaTime;
+           _backgroundImage.color = backgroundColor;
+            
         }
     }
-
-    public void GameScene(string sceneName)
+    public void NextScene()
     {
-        StartCoroutine(ChangeScene(sceneName));
+        currentSceneIndex = currentScene.buildIndex;
+        StartCoroutine(ChangeBackground(true));
     }
 
-    IEnumerator ChangeScene(string sceneName)
+    public void PerviousScene()
     {
-       _isBackgroundMain = true;
-       _isBackgroundGame = false;
-       yield return new WaitForSeconds(_changeSceneCooldown);
-       SceneManager.LoadScene(1);
+        currentSceneIndex = currentScene.buildIndex;
+        StartCoroutine(ChangeBackground(false));
+    }
+
+    IEnumerator ChangeBackground(bool isChange)
+    {
+        if (isChange)
+        {
+            _isNextScene = true;
+            yield return new WaitForSeconds(_changeSceneCooldown);
+            _isNextScene = false;
+            yield return new WaitForSeconds(0.1f);
+            SceneManager.LoadScene(currentSceneIndex + 1);
+
+        }
+        if (!isChange)
+        {
+            _isNextScene = true;
+            yield return new WaitForSeconds(_changeSceneCooldown);
+            _isNextScene = false;
+            yield return new WaitForSeconds(0.1f);
+            if (currentSceneIndex != 0)
+            {
+                SceneManager.LoadScene(currentSceneIndex - 1);
+            }
+        }
+    }
+    IEnumerator StartChangeLoadScreen()
+    {
+        _isPerviousScene = true;
+        yield return new WaitForSeconds(_changeSceneCooldown);
+        _isPerviousScene = false;
+        _backgroundImage.enabled = false;
     }
 }
