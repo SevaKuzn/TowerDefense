@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class Civilians : MonoBehaviour
 {
     [SerializeField] int civilianSalary = 20;
-    public int price = 100;
+    [SerializeField] public int price = 100;
+
     public int civilianCount;
     void Start()
     {
