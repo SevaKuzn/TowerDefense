@@ -7,6 +7,7 @@ TagManager:
   - Civilian
   - Warrior
   - Enemy
+  - Castle
   layers:
   - Default
   - TransparentFX

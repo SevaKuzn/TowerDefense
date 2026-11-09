@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5492768654018251139}
   - component: {fileID: 3235645680140069647}
   - component: {fileID: 5349880366267526028}
+  - component: {fileID: 8659044757557411031}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Warrior
@@ -119,3 +120,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8659044757557411031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226590358570257983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d59ddd2da13e234fa6fe7d7cfbbb16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit
+  anim: {fileID: 5349880366267526028}
+  hp: 100
+  damage: 20
+  unitPrefab: {fileID: 4226590358570257983}

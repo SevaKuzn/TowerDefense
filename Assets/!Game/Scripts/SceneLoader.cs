@@ -54,6 +54,11 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(ChangeBackground(false));
     }
 
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
     IEnumerator ChangeBackground(bool isChange)
     {
         if (isChange)

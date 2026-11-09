@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5232888877592819033}
   - component: {fileID: 4812372807864690954}
   - component: {fileID: 806988731435709763}
+  - component: {fileID: -69610623760401647}
   m_Layer: 0
   m_Name: Civilian
   m_TagString: Civilian
@@ -119,3 +120,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-69610623760401647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468627170579578332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d59ddd2da13e234fa6fe7d7cfbbb16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit
+  anim: {fileID: 806988731435709763}
+  hp: 50
+  damage: 5
+  unitPrefab: {fileID: 7468627170579578332}
