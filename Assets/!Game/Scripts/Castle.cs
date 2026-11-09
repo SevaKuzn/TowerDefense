@@ -7,7 +7,6 @@ public class Castle : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI hpText;
     [SerializeField] Scrollbar hpBar;
-    [SerializeField] public GameObject losePanel;
     public int hpValue = 100;
     public bool isDamage;
 
@@ -24,11 +23,6 @@ public class Castle : MonoBehaviour
         {
             hpBar.size = hpValue / 100f;
             hpText.text = hpValue.ToString();
-        }
-
-        if (hpValue <= 0)
-        {
-            losePanel.SetActive(true);
         }
     }
 }

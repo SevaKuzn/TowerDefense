@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+
 
 public class AddUnitBtn : MonoBehaviour
 {
     private int _maxUnitCount = 14;
     private int _unitCount = 1;
     private int _wCount;
+
+    [SerializeField] private TextMeshProUGUI btnText;
     [SerializeField] private int _price;
     [SerializeField] private float _unitCooldown;
     [SerializeField] private Image _icon;
@@ -15,6 +19,11 @@ public class AddUnitBtn : MonoBehaviour
     [SerializeField] private GameObject _prefab;
     private bool _isCooldown = false;
     private bool _isIcon = false;
+
+    private void Start()
+    {
+        btnText.text = $"нанять\r\n{_price} пщ";
+    }
 
     void Update()
     {

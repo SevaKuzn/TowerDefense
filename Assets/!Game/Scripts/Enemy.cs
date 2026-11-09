@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -7,11 +9,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int damage = 1;
     [SerializeField] private GameObject enemyPrefab;
 
+    private bool isDie = false;
+    private bool s1;
+
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+        SetWalk(true);
+        StartCoroutine(WalkDelay(5f));
+    }
+
     void Update()
     {
         if (hp <= 0)
         {
-            Destroy(gameObject);
             anim.SetBool("isDie", true);
         }
     }
@@ -34,29 +45,41 @@ public class Enemy : MonoBehaviour
         }     
     }
 
+    public void SetDie(bool isActive)
+    {
+        if (anim != null)
+        {
+            anim.SetBool("isDie", isActive);
+        }
+    }
+
+    public void SetAttack()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger("isAttack");
+        }
+    }
+
     public void GetDamage(int unitDamage)
     {
         hp -= unitDamage;
         if (hp <= 0)
         {
-            Destroy(gameObject);
-            if (anim != null)
-            {
-                anim.SetBool("isDie", true);
-            }
+            StartCoroutine(DeathDelay(5f));
         }
     }
 
-    public void GiveDamage()
+    IEnumerator WalkDelay(float delay)
     {
-        if (anim != null)
-        {
-            anim.SetBool("isAttack", true);
-        }
+        yield return new WaitForSeconds(delay);
+        SetWalk(false);
+    }
 
-        if (anim != null)
-        {
-            anim.SetBool("isAttack", false);
-        }
+    IEnumerator DeathDelay(float delay)
+    {
+        SetDie(true);
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }

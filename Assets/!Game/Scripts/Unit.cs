@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class Unit : MonoBehaviour
 {
@@ -9,9 +11,14 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (hp <= 0)
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    public void SetAttack()
+    {
+        if (anim != null)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("isAttack");
         }
     }
 
@@ -20,23 +27,23 @@ public class Unit : MonoBehaviour
         hp -= enemyDamage;
         if (hp <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(DeathDelay(5f));
         }
     }
 
     public void GiveDamage(Enemy target)
     {
-        if (anim != null)
-        {
-            anim.SetBool("isAttack", true);
-        }
+        SetAttack();
         if (target != null)
         {
             target.GetDamage(damage);
         }
-        if (anim != null)
-        {
-            anim.SetBool("isAttack", true);
-        }
+    }
+
+    IEnumerator DeathDelay(float delay)
+    {
+        SetAttack();
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
 }

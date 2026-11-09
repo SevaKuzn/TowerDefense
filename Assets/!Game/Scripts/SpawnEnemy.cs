@@ -6,7 +6,7 @@ public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] private float spawnTimer = 5f;
     [SerializeField] private int startEnemyCount = 3;
-    private int waveCount = 1;
+    public int waveCount = 1;
 
     [SerializeField] private Enemy _enemyGoblin;
     [SerializeField] private Enemy _enemySkeleton;
@@ -96,14 +96,5 @@ public class SpawnEnemy : MonoBehaviour
         }
 
         spawnArea.anchoredPosition = endPos;
-    }
-
-    private IEnumerator Walk(float walkDuration)
-    {
-        _enemyGoblin.SetWalk(true);
-        _enemySkeleton.SetWalk(true);
-        yield return new WaitForSeconds(walkDuration);
-        _enemyGoblin.SetWalk(false);
-        _enemySkeleton.SetWalk(false);
     }
 }

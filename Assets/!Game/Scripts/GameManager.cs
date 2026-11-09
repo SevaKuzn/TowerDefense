@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Wheat wheat;
     [SerializeField] private Civilians civiliansWork;
     [SerializeField] private Castle castle;
+    [SerializeField] private SpawnEnemy spawnEnemy;
 
     [SerializeField] private RectTransform enemySpawnArea;
     [SerializeField] private RectTransform civilianSpawnArea;
     [SerializeField] private RectTransform warriorSpawnArea;
     [SerializeField] private RectTransform defArea;
+
+    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject winPanel;
 
     [SerializeField] private int warriorRequest = 1;
     [SerializeField] private int civilianRequest = 3;
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        wheat.wheatCount = 1000;
+        wheat.wheatCount = 0;
         wheat.wheatText.text = $"Пщеница: {wheat.wheatCount}";
         StartWaveTimer();
     }
@@ -131,7 +135,7 @@ public class GameManager : MonoBehaviour
             {
                 if (enemy != null)
                 {
-                    enemy.GiveDamage();
+                    enemy.SetAttack();
                     GetCastleDamage(enemy.damage);
                 } 
             }
@@ -147,6 +151,8 @@ public class GameManager : MonoBehaviour
         {
             if (warriors[i] != null && enemies[i] != null)
             {
+                enemies[i].SetAttack();
+                warriors[i].SetAttack();
                 enemies[i].GetDamage(enemies[i].hp);
                 warriors[i].GetDamage(warriors[i].hp);
             }
@@ -162,7 +168,9 @@ public class GameManager : MonoBehaviour
         {
             if (enemies[i] != null)
             {
+                enemies[i].SetAttack();
                 enemies[i].GetDamage(enemies[i].hp);
+                
             }
 
             for (int j = 0; j < civilianRequest; j++)
@@ -200,6 +208,11 @@ public class GameManager : MonoBehaviour
 
     private void EndWave()
     {
+        if (spawnEnemy.waveCount >= 10)
+        {
+            Time.timeScale = 0f;
+            winPanel.SetActive(true);
+        }
         isEnemyWave = false;
         battleStarted = false;
         unitsReturned = false;
@@ -294,6 +307,8 @@ public class GameManager : MonoBehaviour
         if (castle.hpValue <= 0)
         {
             Time.timeScale = 0;
+            losePanel.SetActive(true);
+            
         }
     }
 

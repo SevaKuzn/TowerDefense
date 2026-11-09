@@ -1963,8 +1963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 771805977205442}
-  - component: {fileID: 2148949956340544971}
-  - component: {fileID: 3046680955799912882}
+  - component: {fileID: -7426692353612643816}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -1989,10 +1988,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.23777, y: 0.13532}
+  m_AnchoredPosition: {x: 35.72451, y: 2.35314}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2148949956340544971
+--- !u!114 &-7426692353612643816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2004,32 +2003,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59789c782d71a8b43bb381592b2b4fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  anim: {fileID: 5890334691630432528}
+  anim: {fileID: 0}
   hp: 100
   damage: 10
   enemyPrefab: {fileID: 7044240192489894237}
---- !u!95 &3046680955799912882
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7044240192489894237}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c9df5529ec3e949479411f03bd25ebf0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7067790195104516110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8965885215711932700}
   - component: {fileID: 5890334691630432528}
+  - component: {fileID: 5120530961714091916}
   m_Layer: 0
   m_Name: SkeletonEnemy
   m_TagString: Enemy
@@ -2161,6 +2139,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5120530961714091916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345644188292465858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59789c782d71a8b43bb381592b2b4fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  anim: {fileID: 5890334691630432528}
+  hp: 100
+  damage: 10
+  enemyPrefab: {fileID: 7044240192489894237}
 --- !u!1 &7440544176876630992
 GameObject:
   m_ObjectHideFlags: 0
