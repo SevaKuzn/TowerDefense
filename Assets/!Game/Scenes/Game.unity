@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.55
+  m_fontSize: 17.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2017,8 +2017,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddUnitBtn
   btnText: {fileID: 1335961410}
-  _price: 100
-  _unitCooldown: 10
+  _price: 40
+  _unitCooldown: 3
   _icon: {fileID: 1538918838}
   _wh: {fileID: 358028572}
   _place: {fileID: 1044506795}
@@ -2857,7 +2857,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.4
+  m_fontSize: 25.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3305,8 +3305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901855578b7a6894d9648c238f1853da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
-  spawnTimer: 60
-  startEnemyCount: 3
+  spawnTimer: 90
+  startEnemyCount: 2
   waveCount: 1
   _enemyGoblin: {fileID: 3843380226306966089, guid: 83a03935b0eb59f49b89df1cb6a96a86, type: 3}
   _enemySkeleton: {fileID: -7426692353612643816, guid: f4d38ef59e7f79241ab548d0c1633484, type: 3}
@@ -3919,7 +3919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8215160702261078579, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_fontSize
-      value: 16.4
+      value: 15.65
       objectReference: {fileID: 0}
     - target: {fileID: 8215160702261078579, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_fontAsset
@@ -4671,7 +4671,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.6
+  m_fontSize: 21.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5724,7 +5724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Civilans
   civilianSalary: 0
-  price: 500
+  price: 200
   civilianCount: 0
 --- !u!114 &580299096
 MonoBehaviour:
@@ -8420,8 +8420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddUnitBtn
   btnText: {fileID: 675247524}
-  _price: 500
-  _unitCooldown: 10
+  _price: 200
+  _unitCooldown: 5
   _icon: {fileID: 1223414084}
   _wh: {fileID: 358028572}
   _place: {fileID: 580299097}
@@ -15584,7 +15584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.019236246, y: 0.8661008}
   m_AnchorMax: {x: 0.091000006, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: 1.999939}
+  m_AnchoredPosition: {x: -1.5, y: 1.9999237}
   m_SizeDelta: {x: 1, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1538918838
@@ -16840,7 +16840,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.9
+  m_fontSize: 26.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19907,7 +19907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8215160702261078579, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_fontSize
-      value: 16.45
+      value: 15.7
       objectReference: {fileID: 0}
     - target: {fileID: 8215160702261078579, guid: ecc8e2b7fdbf14746a5a2335c4ad4003, type: 3}
       propertyPath: m_fontAsset
